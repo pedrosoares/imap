@@ -210,15 +210,17 @@ class Part implements \RecursiveIterator
         return $this->structure;
     }
 
-    protected function parseStructure(\stdClass $structure)
-    {
-        if (isset($this->typesMap[$structure->type])) {
+    protected function parseStructure(\stdClass $structure) {
+
+        if (isset($structure->type) && isset($this->typesMap[$structure->type])) {
             $this->type = $this->typesMap[$structure->type];
         } else {
             $this->type = self::TYPE_UNKNOWN;
         }
 
+        if(isset($structure->encoding))
         $this->encoding = $this->encodingsMap[$structure->encoding];
+        if(isset($structure->subtype))
         $this->subtype = $structure->subtype;
 
         if (isset($structure->bytes)) {
@@ -232,6 +234,7 @@ class Part implements \RecursiveIterator
         }
 
         $this->parameters = new Parameters();
+        if(isset($structure->parameters))
         if (is_array($structure->parameters)) {
             $this->parameters->add($structure->parameters);
         }
@@ -326,8 +329,8 @@ class Part implements \RecursiveIterator
         );
     }
 
-    private function isAttachment($part)
-    {
+    private function isAttachment($part) {
+
         // Attachment with correct Content-Disposition header
         if (isset($part->disposition)) {
             if (('attachment' === strtolower($part->disposition)
@@ -341,6 +344,15 @@ class Part implements \RecursiveIterator
         // Attachment without Content-Disposition header
         if (isset($part->parameters)) {
             foreach ($part->parameters as $parameter) {
+                if ('name' === strtolower($parameter->attribute)
+                    || 'filename' === strtolower($parameter->attribute)
+                ) {
+                    return true;
+                }
+            }
+
+            if(isset($part->dparameters))
+            foreach ($part->dparameters as $parameter) {
                 if ('name' === strtolower($parameter->attribute)
                     || 'filename' === strtolower($parameter->attribute)
                 ) {

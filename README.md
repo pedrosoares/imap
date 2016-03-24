@@ -1,9 +1,9 @@
 IMAP library
 ============
-[![Build Status](https://travis-ci.org/ddeboer/imap.svg?branch=master)](https://travis-ci.org/ddeboer/imap)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ddeboer/imap/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ddeboer/imap/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/ddeboer/imap/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ddeboer/imap/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/ddeboer/imap/v/stable.svg)](https://packagist.org/packages/ddeboer/imap) 
+[![Build Status](https://travis-ci.org/pedrosoares/imap.svg?branch=master)](https://travis-ci.org/pedrosoares/imap)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pedrosoares/imap/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pedrosoares/imap/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/pedrosoares/imap/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/pedrosoares/imap/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/pedrosoares/imap/v/stable.svg)](https://packagist.org/packages/pedrosoares/imap)
 
 
 A PHP 5.4+ library to read and process e-mails over IMAP. Original version made by: https://github.com/ddeboer/imap

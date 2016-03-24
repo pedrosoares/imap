@@ -26,8 +26,7 @@ class Message extends Message\Part
      * @param resource $stream        IMAP stream
      * @param int      $messageNumber Message number
      */
-    public function __construct($stream, $messageNumber)
-    {
+    public function __construct($stream, $messageNumber) {
         $this->stream = $stream;
         $this->messageNumber = $messageNumber;
 
@@ -270,6 +269,8 @@ class Message extends Message\Part
         if (!imap_delete($this->stream, $this->messageNumber, \FT_UID)) {
             throw new MessageDeleteException($this->messageNumber);
         }
+
+        imap_expunge($this->stream);
     }
 
     /**
@@ -284,6 +285,8 @@ class Message extends Message\Part
         if (!imap_mail_move($this->stream, $this->messageNumber, $mailbox->getName(), \CP_UID)) {
             throw new MessageMoveException($this->messageNumber, $mailbox->getName());
         }
+
+        imap_expunge($this->stream);
 
         return $this;
     }

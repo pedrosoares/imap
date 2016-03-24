@@ -1,5 +1,5 @@
 {
-    "name": "ddeboer/imap",
+    "name": "pedrosoares/imap",
     "description": "Object-oriented IMAP for PHP",
     "keywords": [ "email", "mail", "imap" ],
     "license": "MIT",
@@ -9,9 +9,17 @@
             "email": "david@ddeboer.nl"
         },
         {
+            "name": "Pedro Augusto da Silva Soares",
+            "email": "contato@pedrosoares.net"
+        },
+        {
             "name": "Community contributors",
             "homepage": "https://github.com/ddeboer/imap/graphs/contributors"
-        }   
+        },
+        {
+            "name": "Community contributors From Pedro Soares Repo",
+            "homepage": "https://github.com/pedrosoares/imap/graphs/contributors"
+        }
     ],
     "require": {
         "php": ">=5.4.0",
